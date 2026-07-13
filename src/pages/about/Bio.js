@@ -1,27 +1,29 @@
-import React from 'react';
+import SectionCard from '../../components/ui/SectionCard';
 
 export default function Bio() {
 	return (
-		<div className="bio">
-			{/* <h3>Bio</h3> */}
-			<p>
-				Hi, I’m a self-taught frontend developer passionate about building
-				modern, responsive, and user-friendly web applications. I primarily work
-				with React and JavaScript and I enjoy turning ideas into real projects
-				while continuously improving my skills through hands-on development.{' '}
-				<br />
-				<br />
-				I’m especially interested in understanding how applications are
-				logically structured, how different technologies interact, and how
-				scalable systems are designed and maintained. I enjoy problem-solving,
-				improving application architecture, learning new technologies, and
-				building projects that strengthen both my technical understanding and
-				development skills.
-				<br /> <br />
-				Currently, I’m focused on building strong portfolio projects, gaining
-				practical experience, and continuing my journey toward becoming a
-				professional software developer.
-			</p>
-		</div>
+		<SectionCard title="About">
+			<div className="flex flex-col gap-4">
+				<p className="text-lg leading-relaxed text-text">
+					Hi — I&apos;m a self-taught frontend developer who learns best by
+					building. I work mainly with React and JavaScript, and I like taking an
+					idea from early sketch to something deployed that people can actually
+					use.
+				</p>
+				<p className="text-base leading-relaxed text-text-muted">
+					What keeps me interested is the craft side of frontend: semantic HTML,
+					responsive layouts, and interfaces that feel simple to navigate. I aim
+					for accessible patterns where I can — readable markup, sensible focus
+					states — and enjoy figuring out how state, routing, and APIs fit
+					together.
+				</p>
+				<p className="text-base leading-relaxed text-text-muted">
+					Right now I&apos;m focused on growing my portfolio, sharpening my skills
+					on real projects, and finding a junior role where I can learn alongside a
+					team. If you&apos;d like to connect, I&apos;m always happy to chat about
+					work, collabs, or what you&apos;re building.
+				</p>
+			</div>
+		</SectionCard>
 	);
 }

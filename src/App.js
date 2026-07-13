@@ -1,23 +1,32 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/home/Home';
-import About from './pages/about/About';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import PageLoader from './components/layout/PageLoader';
+import PageTransition from './components/layout/PageTransition';
 
-//styles
-import './App.css';
+const Home = lazy(() => import('./pages/home/Home'));
+const About = lazy(() => import('./pages/about/About'));
+const CaseStudy = lazy(() => import('./pages/case-study/CaseStudy'));
 
-function App() {
+export default function App() {
 	return (
-		<div className="App">
-			<BrowserRouter>
+		<div className="app-shell">
+			<BrowserRouter basename="/projects-guide">
 				<Navbar />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/about" element={<About />} />
-				</Routes>
+				<main className="flex-1">
+					<Suspense fallback={<PageLoader />}>
+						<PageTransition>
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/about" element={<About />} />
+								<Route path="/projects/:projectId" element={<CaseStudy />} />
+							</Routes>
+						</PageTransition>
+					</Suspense>
+				</main>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
 }
-
-export default App;

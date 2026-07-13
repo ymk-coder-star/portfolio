@@ -1,0 +1,152 @@
+import {
+	practice,
+	memoryGame,
+	movieApp,
+	myMoney,
+	shoppingList,
+	tracalorie,
+	theDojo,
+} from '../assets/assetsHandler';
+
+export const projects = [
+	{
+		id: 'the-dojo',
+		title: 'The Dojo',
+		featured: true,
+		caseStudy: true,
+		highlight: 'React · Firebase · Task boards · React Router',
+		description:
+			'Built a React + Firebase project workspace with task boards, routing, and filtered views — integrating Firestore data, date handling, and reusable UI components.',
+		src: theDojo,
+		href: 'https://business-management-app-ee53c.web.app/',
+		repo: 'https://github.com/ymk-coder-star/project-management-app',
+		tags: [
+			'React',
+			'Firebase',
+			'React Router',
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'date-fns',
+			'React Select',
+		],
+	},
+	{
+		id: 'mymoney',
+		title: 'myMoney',
+		featured: true,
+		highlight: 'React · Firebase · Income & expenses · Firebase Hosting',
+		description:
+			'Personal finance app with income and expense logging, Firebase-backed storage, and routed views for tracking spending over time.',
+		src: myMoney,
+		href: 'https://mymoney-88a40.web.app/',
+		repo: 'https://github.com/ymk-coder-star/mymoney-app',
+		tags: [
+			'React',
+			'Firebase',
+			'React Router',
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'Create React App',
+			'Firebase Hosting',
+		],
+	},
+	{
+		id: 'movie-app',
+		title: 'Flixx',
+		featured: true,
+		highlight: 'Vanilla JS · TMDB API · Search & trending · GitHub Pages',
+		description:
+			'Vanilla JavaScript movie browser that fetches search and trending data from the TMDB REST API, with dynamic DOM rendering and a responsive layout.',
+		src: movieApp,
+		href: 'https://ymk-coder-star.github.io/flixx-app/',
+		repo: 'https://github.com/ymk-coder-star/flixx-app',
+		tags: [
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'REST APIs',
+			'TMDB API',
+			'Font Awesome',
+			'Netlify',
+			'GitHub Pages',
+		],
+	},
+	{
+		id: 'tracalorie',
+		title: 'Tracalorie',
+		highlight: 'OOP · JavaScript · Local Storage · SCSS',
+		description:
+			'Calorie tracker built with OOP in JavaScript — local storage persistence, daily goal settings, and a modular SCSS layout focused on form handling and client-side data flow.',
+		src: tracalorie,
+		href: 'https://ymk-coder-star.github.io/tracalorie-app/',
+		repo: 'https://github.com/ymk-coder-star/tracalorie-app',
+		tags: [
+			'JavaScript',
+			'SCSS',
+			'HTML',
+			'CSS',
+			'Local Storage',
+			'Font Awesome',
+			'GitHub Pages',
+			'DOM Manipulation',
+		],
+	},
+	{
+		id: 'shopping-list',
+		title: 'Shopping List',
+		highlight: 'Vanilla JS · CRUD · DOM manipulation · GitHub Pages',
+		description:
+			'Vanilla JS CRUD app for managing a grocery list — practised DOM manipulation, inline editing, and UI updates without a framework.',
+		src: shoppingList,
+		href: 'https://ymk-coder-star.github.io/Shopping-list/',
+		repo: 'https://github.com/ymk-coder-star/Shopping-list',
+		tags: [
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'DOM Manipulation',
+			'GitHub Pages',
+		],
+	},
+	{
+		id: 'js-practice',
+		title: 'JS Practice',
+		highlight: 'JavaScript fundamentals · DOM APIs · Logic challenges',
+		description:
+			'Structured JavaScript exercises covering arrays, DOM APIs, and logic problems — groundwork built before moving into React.',
+		src: practice,
+		href: 'https://ymk-coder-star.github.io/Javascript-practice-main/',
+		repo: 'https://github.com/ymk-coder-star/Javascript-practice-main',
+		tags: [
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'DOM Manipulation',
+			'Problem Solving',
+			'GitHub Pages',
+		],
+	},
+	{
+		id: 'memory-game',
+		title: 'Memory Game',
+		highlight: 'React · Component state · Card matching · GitHub Pages',
+		description:
+			'React card-matching game with flip state, move tracking, and win detection — early practice with component state and event handling.',
+		src: memoryGame,
+		href: 'https://ymk-coder-star.github.io/memory-game/',
+		repo: 'https://github.com/ymk-coder-star/memory-game',
+		tags: [
+			'React',
+			'JavaScript',
+			'HTML',
+			'CSS',
+			'Create React App',
+			'GitHub Pages',
+		],
+	},
+];
+
+export const featuredProjects = projects.filter((project) => project.featured);
+export const moreProjects = projects.filter((project) => !project.featured);
