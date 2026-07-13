@@ -1,5 +1,5 @@
 /** Site metadata — keep in sync with public/index.html Open Graph tags. */
-export const siteUrl = 'https://ymk-coder-star.github.io/projects-guide';
+export const siteUrl = 'https://codecanvas.uk';
 
 export const siteName = 'Yisroel Krausz';
 
@@ -10,7 +10,7 @@ export const siteDescription =
 
 export const ogImageUrl = `${siteUrl}/og-image.webp`;
 
-/** Static assets in /public — paths respect CRA homepage (gh-pages). */
+/** Static assets in /public — paths respect CRA homepage (root deploy). */
 export const resumeFilename = 'Yisroel-Krausz-CV.pdf';
 
 export const resumeUrl = `${process.env.PUBLIC_URL}/${resumeFilename}`;

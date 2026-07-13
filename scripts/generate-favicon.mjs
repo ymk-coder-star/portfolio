@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
+import { encode as encodeIco } from 'sharp-ico';
 import { monogramSvg } from '../src/assets/monogramMark.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -38,7 +39,8 @@ async function run() {
 		)
 	);
 
-	await sharp(icoBuffers[0]).toFile(path.join(publicDir, 'favicon.ico'));
+	const icoBuffer = encodeIco(icoBuffers);
+	fs.writeFileSync(path.join(publicDir, 'favicon.ico'), icoBuffer);
 	console.log('  favicon.ico (16x16, 32x32)');
 
 	console.log('\nFavicon assets generated.');

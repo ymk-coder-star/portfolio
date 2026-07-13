@@ -12,7 +12,7 @@ const CaseStudy = lazy(() => import('./pages/case-study/CaseStudy'));
 export default function App() {
 	return (
 		<div className="app-shell">
-			<BrowserRouter basename="/projects-guide">
+			<BrowserRouter >
 				<Navbar />
 				<main className="flex-1">
 					<Suspense fallback={<PageLoader />}>
