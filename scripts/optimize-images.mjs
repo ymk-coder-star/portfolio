@@ -5,6 +5,7 @@ import sharp from 'sharp';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const assetsDir = path.join(__dirname, '../src/assets');
+const publicDir = path.join(__dirname, '../public');
 
 const projectImages = {
 	'memory_game.png': { maxWidth: 800 },
@@ -13,7 +14,7 @@ const projectImages = {
 	'practice.png': { maxWidth: 800 },
 	'shopping-list-app-img.png': { maxWidth: 800 },
 	'tracalorie-app-img.png': { maxWidth: 800 },
-	'the dojo.png': { maxWidth: 800, outputName: 'the-dojo.webp' },
+	'the dojo.png': { maxWidth: 800 },
 };
 
 const profileImage = {
@@ -21,6 +22,12 @@ const profileImage = {
 	maxWidth: 640,
 	outputName: 'profile-pic.webp',
 };
+
+const previewImage = {
+	file: 'site-preview.png',
+	maxWidth: 1200,
+	outputName: 'site-preview.webp',
+}
 
 async function optimizeToWebp(inputPath, outputPath, maxWidth) {
 	const image = sharp(inputPath);
@@ -79,7 +86,18 @@ async function run() {
 		);
 	}
 
-	console.log('\nDone. Update imports in assetsHandler.js and About.js to use .webp files.');
+	const previewInput = path.join(assetsDir, previewImage.file);
+	const previewOutput = path.join(publicDir, previewImage.outputName);
+
+	if (fs.existsSync(previewInput)) {
+		await optimizeToWebp(
+			previewInput,
+			previewOutput,
+			previewImage.maxWidth
+		);
+	}
+
+	console.log('\nDone. Update imports in assetsHandler.js / Profile.jsx to use .webp files.');
 }
 
 run().catch((error) => {
