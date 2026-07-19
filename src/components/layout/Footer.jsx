@@ -53,7 +53,6 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
-        <p className="m-0 text-sm text-text-muted">Built with React & Tailwind</p>
       </div>
     </footer>
   );

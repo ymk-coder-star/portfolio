@@ -11,15 +11,15 @@ export default function Profile() {
           width="320"
           height="320"
           decoding="async"
-          className="h-full w-full object-cover"
+          className="h-full w-full translate-y-[6%] scale-[1.15] object-cover object-center"
         />
       </div>
       <h2 className="text-xl font-bold tracking-tight text-text">Yisroel Krausz</h2>
-      <p className="text-base font-semibold text-text">Junior Frontend Developer</p>
+      <p className="text-base font-semibold text-text">Software Developer</p>
       <div className="flex flex-col gap-1">
         <p className="text-sm leading-relaxed text-text-muted">Tyne and Wear, England</p>
         <p className="text-sm leading-relaxed text-text-muted">
-          Self-taught · Open to junior roles (remote/hybrid)
+          Available for projects and collaboration
         </p>
       </div>
       <a

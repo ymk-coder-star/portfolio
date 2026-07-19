@@ -8,99 +8,90 @@ const assetsDir = path.join(__dirname, '../src/assets');
 const publicDir = path.join(__dirname, '../public');
 
 const projectImages = {
-	'memory_game.png': { maxWidth: 800 },
-	'movie-app-img.png': { maxWidth: 800 },
-	'myMoney_app.png': { maxWidth: 800 },
-	'practice.png': { maxWidth: 800 },
-	'shopping-list-app-img.png': { maxWidth: 800 },
-	'tracalorie-app-img.png': { maxWidth: 800 },
-	'the dojo.png': { maxWidth: 800 },
+  'memory_game.png': { maxWidth: 800 },
+  'movie-app-img.png': { maxWidth: 800 },
+  'myMoney_app.png': { maxWidth: 800 },
+  'tracalorie-app-img.png': { maxWidth: 800 },
+  'the-dojo.png': { maxWidth: 800 },
 };
 
 const profileImage = {
-	file: 'profile-pic.jpg',
-	maxWidth: 640,
-	outputName: 'profile-pic.webp',
+  file: 'profile-pic.png',
+  maxWidth: 640,
+  outputName: 'profile-pic.webp',
 };
 
 const previewImage = {
-	file: 'site-preview.png',
-	maxWidth: 1200,
-	outputName: 'site-preview.webp',
-}
+  file: 'site-preview.png',
+  maxWidth: 1200,
+  outputName: 'site-preview.webp',
+};
 
 async function optimizeToWebp(inputPath, outputPath, maxWidth) {
-	const image = sharp(inputPath);
-	const metadata = await image.metadata();
+  const image = sharp(inputPath);
+  const metadata = await image.metadata();
 
-	await image
-		.resize(maxWidth, null, {
-			fit: 'inside',
-			withoutEnlargement: true,
-		})
-		.webp({ quality: 82 })
-		.toFile(outputPath);
+  await image
+    .resize(maxWidth, null, {
+      fit: 'inside',
+      withoutEnlargement: true,
+    })
+    .webp({ quality: 82 })
+    .toFile(outputPath);
 
-	const before = fs.statSync(inputPath).size;
-	const after = fs.statSync(outputPath).size;
-	const saved = (((before - after) / before) * 100).toFixed(1);
+  const before = fs.statSync(inputPath).size;
+  const after = fs.statSync(outputPath).size;
+  const saved = (((before - after) / before) * 100).toFixed(1);
 
-	console.log(
-		`  ${path.basename(inputPath)} → ${path.basename(outputPath)} (${formatKb(before)} → ${formatKb(after)}, -${saved}%)`
-	);
+  console.log(
+    `  ${path.basename(inputPath)} → ${path.basename(outputPath)} (${formatKb(before)} → ${formatKb(after)}, -${saved}%)`
+  );
 
-	if (metadata.width && metadata.width > maxWidth) {
-		console.log(`    resized from ${metadata.width}px wide to max ${maxWidth}px`);
-	}
+  if (metadata.width && metadata.width > maxWidth) {
+    console.log(`    resized from ${metadata.width}px wide to max ${maxWidth}px`);
+  }
 }
 
 function formatKb(bytes) {
-	return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / 1024).toFixed(1)} KB`;
 }
 
 async function run() {
-	console.log('Optimizing portfolio images...\n');
+  console.log('Optimizing portfolio images...\n');
 
-	for (const [fileName, config] of Object.entries(projectImages)) {
-		const inputPath = path.join(assetsDir, fileName);
-		const outputName =
-			config.outputName || `${path.parse(fileName).name}.webp`;
-		const outputPath = path.join(assetsDir, outputName);
+  for (const [fileName, config] of Object.entries(projectImages)) {
+    const inputPath = path.join(assetsDir, fileName);
+    const outputName = config.outputName || `${path.parse(fileName).name}.webp`;
+    const outputPath = path.join(assetsDir, outputName);
 
-		if (!fs.existsSync(inputPath)) {
-			console.warn(`  Skipping missing file: ${fileName}`);
-			continue;
-		}
+    if (!fs.existsSync(inputPath)) {
+      console.warn(`  Skipping missing file: ${fileName}`);
+      continue;
+    }
 
-		await optimizeToWebp(inputPath, outputPath, config.maxWidth);
-	}
+    await optimizeToWebp(inputPath, outputPath, config.maxWidth);
+  }
 
-	const profileInput = path.join(assetsDir, profileImage.file);
-	const profileOutput = path.join(assetsDir, profileImage.outputName);
+  const profileInput = path.join(assetsDir, profileImage.file);
+  const profileOutput = path.join(assetsDir, profileImage.outputName);
 
-	if (fs.existsSync(profileInput)) {
-		await optimizeToWebp(
-			profileInput,
-			profileOutput,
-			profileImage.maxWidth
-		);
-	}
+  if (fs.existsSync(profileInput)) {
+    await optimizeToWebp(profileInput, profileOutput, profileImage.maxWidth);
+  }
 
-	const previewInput = path.join(assetsDir, previewImage.file);
-	const previewOutput = path.join(publicDir, previewImage.outputName);
+  const previewInput = path.join(assetsDir, previewImage.file);
+  const previewOutput = path.join(publicDir, previewImage.outputName);
 
-	if (fs.existsSync(previewInput)) {
-		await optimizeToWebp(
-			previewInput,
-			previewOutput,
-			previewImage.maxWidth
-		);
-	}
+  if (fs.existsSync(previewInput)) {
+    await optimizeToWebp(previewInput, previewOutput, previewImage.maxWidth);
+  }
 
-	console.log('\nDone. Update imports in assetsHandler.js / Profile.jsx to use .webp files.');
+  console.log(
+    '\nDone. Update imports in assetsHandler.js / Profile.jsx to use .webp files.'
+  );
 }
 
 run().catch((error) => {
-	console.error(error);
-	process.exit(1);
+  console.error(error);
+  process.exit(1);
 });

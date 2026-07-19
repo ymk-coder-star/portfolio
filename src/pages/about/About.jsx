@@ -11,7 +11,7 @@ export default function About() {
       <Reveal as="div" variant="fade">
         <PageHeader
           title="About Me"
-          subtitle="Building intuitive web experiences through continuous learning and modern front-end development."
+          subtitle="Software developer creating practical digital products for real clients, with a strong focus on modern frontend experiences."
           gradient
         />
       </Reveal>

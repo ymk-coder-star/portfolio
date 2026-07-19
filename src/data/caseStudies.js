@@ -5,7 +5,7 @@
 export const caseStudies = {
   'the-dojo': {
     subtitle:
-      'How I built a React + Firebase project workspace for organising tasks and tracking progress.',
+      'A shared project workspace designed to keep tasks, responsibilities, deadlines, and team communication in one organised place.',
     sections: [
       {
         title: 'The goal',
@@ -22,7 +22,7 @@ export const caseStudies = {
         ],
       },
       {
-        title: 'Challenges & learnings',
+        title: 'Challenges & solutions',
         list: [
           'Structuring Firestore data and wiring it cleanly into React state',
           'Keeping forms, filters, and routed views in sync without overcomplicating the UI',
@@ -32,7 +32,7 @@ export const caseStudies = {
       },
       {
         title: 'Outcome',
-        body: 'The Dojo is my most complete full-stack frontend project so far — it brought together routing, backend integration, and UI craft in one deployed app. It gave me confidence working with Firebase and structuring a React codebase beyond small exercises.',
+        body: 'The Dojo brought together routing, backend integration, and UI craft in one deployed full-stack application. It strengthened my experience with Firebase and with structuring a React codebase for a substantial product.',
       },
     ],
   },
