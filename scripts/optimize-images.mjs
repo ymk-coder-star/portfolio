@@ -13,6 +13,7 @@ const projectImages = {
   'myMoney_app.png': { maxWidth: 800 },
   'tracalorie-app-img.png': { maxWidth: 800 },
   'the-dojo.png': { maxWidth: 800 },
+  'weather-app.png': { maxWidth: 800 },
 };
 
 const profileImage = {

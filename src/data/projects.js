@@ -4,9 +4,37 @@ import {
   myMoney,
   tracalorie,
   theDojo,
+  weatherApp,
 } from '../assets/assetsHandler';
 
 export const projects = [
+  {
+    id: 'weather-app',
+    title: 'Weather Forecast Dashboard',
+    featured: true,
+    caseStudy: true,
+    highlight:
+      'Live forecasts, location search, and saved places in one responsive dashboard',
+    description:
+      'A responsive weather dashboard for searching locations worldwide, checking current, hourly, and seven-day forecasts, changing display units, and saving favourite places for quick access.',
+    src: weatherApp,
+    href: 'https://weather-forecast-4c393.web.app/',
+    repo: 'https://github.com/ymk-coder-star/weather-app',
+    tags: ['React', 'TypeScript', 'Tailwind'],
+  },
+  {
+    id: 'movie-app',
+    title: 'Movie & TV Discovery',
+    featured: true,
+    caseStudy: true,
+    highlight: 'A simple way to discover films and TV shows worth watching',
+    description:
+      'Flixx helps viewers explore now-playing and popular titles, search a large movie and TV catalogue, and open detailed pages with the information needed to choose what to watch next.',
+    src: movieApp,
+    href: 'https://ymk-coder-star.github.io/flixx-app/',
+    repo: 'https://github.com/ymk-coder-star/flixx-app',
+    tags: ['TypeScript', 'JavaScript', 'HTML', 'CSS'],
+  },
   {
     id: 'the-dojo',
     title: 'Team Project Workspace',
@@ -19,30 +47,6 @@ export const projects = [
     href: 'https://business-management-app-ee53c.web.app/',
     repo: 'https://github.com/ymk-coder-star/project-management-app',
     tags: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
-  },
-  {
-    id: 'mymoney',
-    title: 'Personal Finance Tracker',
-    featured: true,
-    highlight: 'A personal finance dashboard for understanding everyday spending',
-    description:
-      'myMoney gives each user a private account where they can record income and expenses, review their transaction history, and maintain a clearer picture of where their money is going.',
-    src: myMoney,
-    href: 'https://mymoney-88a40.web.app/',
-    repo: 'https://github.com/ymk-coder-star/mymoney-app',
-    tags: ['React', 'TypeScript', 'HTML', 'CSS'],
-  },
-  {
-    id: 'movie-app',
-    title: 'Movie & TV Discovery',
-    featured: true,
-    highlight: 'A simple way to discover films and TV shows worth watching',
-    description:
-      'Flixx helps viewers explore now-playing and popular titles, search a large movie and TV catalogue, and open detailed pages with the information needed to choose what to watch next.',
-    src: movieApp,
-    href: 'https://ymk-coder-star.github.io/flixx-app/',
-    repo: 'https://github.com/ymk-coder-star/flixx-app',
-    tags: ['React', 'TypeScript', 'HTML', 'CSS', 'Tailwind'],
   },
   {
     id: 'tracalorie',
@@ -65,6 +69,17 @@ export const projects = [
     href: 'https://ymk-coder-star.github.io/memory-game/',
     repo: 'https://github.com/ymk-coder-star/memory-game',
     tags: ['React', 'JavaScript', 'HTML', 'CSS'],
+  },
+  {
+    id: 'mymoney',
+    title: 'Personal Finance Tracker',
+    highlight: 'A personal finance dashboard for understanding everyday spending',
+    description:
+      'myMoney gives each user a private account where they can record income and expenses, review their transaction history, and maintain a clearer picture of where their money is going.',
+    src: myMoney,
+    href: 'https://mymoney-88a40.web.app/',
+    repo: 'https://github.com/ymk-coder-star/mymoney-app',
+    tags: ['React', 'TypeScript', 'HTML', 'CSS'],
   },
 ];
 
