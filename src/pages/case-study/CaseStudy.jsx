@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom';
 import { projects } from '../../data/projects';
 import { getCaseStudy } from '../../data/caseStudies';
 import { getLinkProps } from '../../utils/linkProps';
@@ -6,14 +6,31 @@ import SkillIcon from '../../components/ui/SkillIcon';
 import Reveal from '../../components/ui/Reveal';
 import GithubIcon from '../../components/icons/GithubIcon';
 import ExternalLinkIcon from '../../components/icons/ExternalLinkIcon';
+import { usePageTitle } from '../../hooks/usePageTitle';
+
+function getBackNav(from) {
+  if (from === '/' || from?.startsWith('/#')) {
+    return { to: from === '/' ? '/' : from, label: 'Back to home' };
+  }
+
+  if (from?.startsWith('/portfolio') && !from.startsWith('/portfolio/projects')) {
+    return { to: from || '/portfolio', label: 'Back to portfolio' };
+  }
+
+  return { to: '/portfolio', label: 'Back to portfolio' };
+}
 
 export default function CaseStudy() {
   const { projectId } = useParams();
+  const location = useLocation();
   const project = projects.find((entry) => entry.id === projectId);
   const caseStudy = getCaseStudy(projectId);
+  const backNav = getBackNav(location.state?.from);
+
+  usePageTitle(project?.title ? `${project.title} · Case Study` : 'Case Study');
 
   if (!project || !caseStudy) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
 
   return (
@@ -21,10 +38,10 @@ export default function CaseStudy() {
       <div className="mx-auto max-w-prose">
         <Reveal variant="fade">
           <Link
-            to="/#featured-projects"
+            to={backNav.to}
             className="mb-6 inline-flex items-center text-sm font-semibold text-text-muted no-underline transition-colors duration-fast hover:text-accent md:mb-8"
           >
-            &larr; Back to projects
+            &larr; {backNav.label}
           </Link>
         </Reveal>
 

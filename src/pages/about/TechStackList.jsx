@@ -28,9 +28,6 @@ function TechStackGroups({ groups }) {
 export default function TechStackList() {
   return (
     <SectionCard title="Tech Stack">
-      <p className="mb-6 text-sm leading-relaxed text-text-muted">
-        Technologies I use across client work, web applications, and personal projects.
-      </p>
       <TechStackGroups groups={techStack} />
     </SectionCard>
   );

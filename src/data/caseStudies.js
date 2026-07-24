@@ -3,106 +3,108 @@
  * Keys match `project.id` in projects.js.
  */
 export const caseStudies = {
-  'movie-app': {
+  'finances-manager': {
     subtitle:
-      'A responsive movie and TV discovery experience powered by live catalogue data from The Movie Database.',
+      'A signed-in dashboard for revenue, customers, and invoices — built end to end with Next.js.',
     sections: [
       {
         title: 'The goal',
-        body: 'I wanted to build a focused entertainment browser that helps users move quickly from discovering popular titles to finding the details they need. The interface needed to support both movies and TV shows while remaining straightforward across desktop and mobile screens.',
+        body: 'I wanted something that felt like a real product: login, live data from PostgreSQL, and invoice admin that doesn’t feel sluggish. Demo login details are in the GitHub README.',
       },
       {
-        title: 'What I built',
+        title: 'What it does',
         list: [
-          'Now-playing carousel and separate popular movie and TV views',
-          'Movie and TV search with result counts and paginated navigation',
-          'Dedicated detail pages with ratings, release information, genres, summaries, and production data',
-          'Dynamic poster and backdrop imagery with fallbacks for missing artwork',
-          'Responsive layouts, loading indicators, validation messages, and active navigation states',
-          'Swiper-powered carousel with autoplay and responsive breakpoints',
+          'Protected dashboard routes with NextAuth credentials login',
+          'Summary cards, a revenue chart, and latest invoices from PostgreSQL',
+          'Searchable, paginated invoices with create, edit, and delete',
+          'Customer list with paid and pending totals',
+          'Server Actions and Zod for form checks and database updates',
+          'Loading skeletons and streaming so sections appear as data arrives',
         ],
       },
       {
         title: 'Challenges & solutions',
         list: [
-          'Reusing one API layer for multiple TMDB endpoints while keeping each page’s rendering logic focused',
-          'Reading search terms, media types, and title IDs from URLs so static pages could display dynamic content',
-          'Maintaining pagination state and rebuilding search results as users moved between pages',
-          'Handling differences between movie and TV response fields without duplicating the whole interface',
-          'Providing sensible fallbacks when dates, posters, homepages, or other catalogue details were unavailable',
+          'Keeping server data fetching separate from the reusable UI pieces',
+          'Driving search and pagination from the URL so links stay shareable',
+          'Refreshing the page after Server Actions so changes show up straight away',
+          'Guarding the dashboard while keeping login and logout simple',
+          'Suspense boundaries so each section can load on its own',
         ],
       },
       {
         title: 'Outcome',
-        body: 'The finished application demonstrates how a multi-page vanilla JavaScript interface can consume a substantial third-party API and turn its data into a clear discovery flow. It strengthened my experience with asynchronous requests, URL-driven state, dynamic DOM rendering, responsive CSS, and reusable data-handling functions.',
+        body: 'A full Next.js App Router build under Code Canvas — auth, database, forms, and deployment on Vercel — that I can point to as a complete stack example.',
+      },
+    ],
+  },
+  'movie-app': {
+    subtitle:
+      'A movie and TV browser powered by The Movie Database, with search and detail pages.',
+    sections: [
+      {
+        title: 'The goal',
+        body: 'I wanted people to go from “what’s popular?” to a proper title page quickly, on desktop and on a phone, without the layout falling apart.',
+      },
+      {
+        title: 'What it does',
+        list: [
+          'Now-playing carousel plus popular movies and TV lists',
+          'Search with result counts and previous / next pages',
+          'Detail pages with ratings, dates, genres, summaries, and production info',
+          'Posters and backdrops with a fallback when artwork is missing',
+          'Loading spinner, empty-search alerts, and active nav states',
+          'Swiper carousel with autoplay and breakpoints for smaller screens',
+        ],
+      },
+      {
+        title: 'Challenges & solutions',
+        list: [
+          'One fetch helper reused across different TMDB endpoints',
+          'Pulling search terms and IDs from the URL on static HTML pages',
+          'Keeping pagination in sync when people move between result pages',
+          'Movie vs TV fields without copying the whole page twice',
+          'Sensible defaults when dates, posters, or homepages are missing',
+        ],
+      },
+      {
+        title: 'Outcome',
+        body: 'A vanilla JS Code Canvas project that pulls a big catalogue into a simple browse → search → details flow.',
       },
     ],
   },
   'weather-app': {
     subtitle:
-      'A responsive weather dashboard combining live forecast data, location-aware search, flexible units, and private saved places.',
+      'Live forecasts with location search, unit toggles, and saved places — no account signup required.',
     sections: [
       {
         title: 'The goal',
-        body: 'I wanted to turn raw weather data into a useful everyday dashboard: fast location search, forecasts that are easy to scan, and favourite places that remain available without asking users to complete a registration form.',
+        body: 'I wanted weather that was actually useful day to day: find a place fast, read the forecast, change units, and save favourites without filling out a form.',
       },
       {
-        title: 'What I built',
+        title: 'What it does',
         list: [
-          'Worldwide location search plus browser geolocation for local weather',
-          'Current conditions, an hourly timeline, and an interactive seven-day forecast',
-          'Temperature, wind-speed, and precipitation unit controls',
-          'Anonymous Firebase Authentication and Firestore-backed saved places',
-          'Responsive desktop sidebar and mobile slide-in panel',
-          'Runtime API response validation with Zod',
+          'City search plus browser geolocation for local weather',
+          'Current conditions, hourly view, and a seven-day outlook',
+          'Controls for temperature, wind, and precipitation units',
+          'Anonymous Firebase Auth with Firestore for saved places',
+          'Desktop sidebar and a slide-in panel on smaller screens',
+          'Zod checks on API responses before they hit the UI',
         ],
       },
       {
         title: 'Challenges & solutions',
         list: [
-          'Normalising current, hourly, and daily Open-Meteo responses into typed application state',
-          'Keeping the selected day, forecast timeline, and unit preferences in sync through React Context',
-          'Handling denied geolocation and failed network requests without discarding the last successful forecast',
-          'Protecting saved locations with Firestore rules scoped to each anonymous user ID',
-          'Mapping weather codes and day/night state to clear, animated Meteocons artwork',
+          'Turning Open-Meteo’s current, hourly, and daily payloads into typed state',
+          'Keeping the selected day, timeline, and units in sync with React Context',
+          'Holding on to the last good forecast when geolocation or the network fails',
+          'Firestore rules so each anonymous user only sees their own places',
+          'Mapping weather codes and day/night to the right Meteocons artwork',
         ],
       },
       {
         title: 'Outcome',
-        body: 'The finished dashboard is a production-deployed React and TypeScript application that brings together third-party APIs, runtime validation, persistent cloud data, responsive interface design, and resilient error handling in a focused user experience.',
-      },
-    ],
-  },
-  'the-dojo': {
-    subtitle:
-      'A shared project workspace designed to keep tasks, responsibilities, deadlines, and team communication in one organised place.',
-    sections: [
-      {
-        title: 'The goal',
-        body: 'I wanted a practical app where users could manage projects and tasks in one workspace — with clear navigation, filtered views, and data that persists between visits. It needed to feel like a real product, not just a tutorial follow-along.',
-      },
-      {
-        title: 'What I built',
-        list: [
-          'Multi-route React app with dedicated project and task views',
-          'Firebase / Firestore integration for reading and writing workspace data',
-          'Filtered task lists using React Select',
-          'Date handling with date-fns for deadlines and activity timestamps',
-          'Responsive UI built from reusable components',
-        ],
-      },
-      {
-        title: 'Challenges & solutions',
-        list: [
-          'Structuring Firestore data and wiring it cleanly into React state',
-          'Keeping forms, filters, and routed views in sync without overcomplicating the UI',
-          'Breaking the interface into smaller components as features grew',
-          'Deploying a production build to Firebase Hosting',
-        ],
-      },
-      {
-        title: 'Outcome',
-        body: 'The Dojo brought together routing, backend integration, and UI craft in one deployed full-stack application. It strengthened my experience with Firebase and with structuring a React codebase for a substantial product.',
+        body: 'A React and TypeScript Code Canvas app in production, with APIs, validation, Firebase, and careful error handling in one place.',
       },
     ],
   },

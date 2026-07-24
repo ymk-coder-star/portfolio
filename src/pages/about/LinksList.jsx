@@ -1,4 +1,5 @@
 import { getLinkProps } from '../../utils/linkProps';
+import { contactMailto, contactEmail, socialLinks } from '../../constants/site';
 import SectionCard from '../../components/ui/SectionCard';
 import GithubIcon from '../../components/icons/GithubIcon';
 
@@ -6,14 +7,14 @@ const links = [
   {
     id: 'github',
     label: 'GitHub',
-    href: 'https://github.com/ymk-coder-star',
+    href: socialLinks.github,
     linkLabel: 'GitHub profile',
     icon: <GithubIcon className="h-5 w-5 shrink-0" />,
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/yisroel-krausz/',
+    href: socialLinks.linkedin,
     linkLabel: 'LinkedIn profile',
     icon: (
       <svg
@@ -29,8 +30,8 @@ const links = [
   {
     id: 'email',
     label: 'Email',
-    href: 'mailto:ymk613.dev@gmail.com',
-    linkLabel: 'Send email to Yisroel Krausz',
+    href: contactMailto,
+    linkLabel: `Send email to ${contactEmail}`,
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -51,10 +52,9 @@ const links = [
 
 export default function LinksList() {
   return (
-    <SectionCard title="Get in Touch">
+    <SectionCard title="Get in touch">
       <p className="mb-5 text-sm leading-relaxed text-text-muted">
-        Open to software development opportunities, freelance client work, and
-        collaboration.
+        Reach out about a project or to collaborate.
       </p>
       <ul className="flex flex-wrap gap-3">
         {links.map((link) => (

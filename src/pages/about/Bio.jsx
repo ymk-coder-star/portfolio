@@ -2,24 +2,24 @@ import SectionCard from '../../components/ui/SectionCard';
 
 export default function Bio() {
   return (
-    <SectionCard title="About">
+    <SectionCard title="Hello">
       <div className="flex flex-col gap-4">
         <p className="text-lg leading-relaxed text-text">
-          I'm Yisroel, a software developer who builds modern, responsive digital
-          products. My main focus is frontend development with React, Next.js, and
-          TypeScript, but my work also extends across APIs, backend services, data, and
-          deployment.
+          Hi, I’m Yisroel. Here at Code Canvas we provide custom software solutions to
+          help businesses and individuals get the digital tools they need, tailored to
+          their specific needs — whether that’s a small application or a large system.
         </p>
         <p className="text-base leading-relaxed text-text-muted">
-          Through freelance work, I've created web applications, websites, and tailored
-          digital solutions for real clients. That experience has taught me how to turn
-          business requirements into reliable, user-friendly products and carry projects
-          from early ideas through development and delivery.
+          I love building applications which are user-friendly and efficient. I listen
+          first, agree on what “done” looks like, and see the work through from idea to
+          something you can actually use day to day.
         </p>
         <p className="text-base leading-relaxed text-text-muted">
-          I'm open to software development opportunities and client collaborations where I
-          can apply that experience, contribute across the stack when needed, and keep
-          delivering thoughtful, maintainable products.
+          I’m always looking for new challenges and opportunities to grow.
+        </p>
+        <p className="text-base leading-relaxed text-text-muted">
+          If you have a project in mind, feel free to get in touch. I’m seeking
+          opportunities to make a meaningful impact.
         </p>
       </div>
     </SectionCard>

@@ -8,6 +8,7 @@ const assetsDir = path.join(__dirname, '../src/assets');
 const publicDir = path.join(__dirname, '../public');
 
 const projectImages = {
+  'finances-manager.png': { maxWidth: 800 },
   'memory_game.png': { maxWidth: 800 },
   'movie-app-img.png': { maxWidth: 800 },
   'myMoney_app.png': { maxWidth: 800 },

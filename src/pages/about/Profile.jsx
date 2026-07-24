@@ -15,11 +15,11 @@ export default function Profile() {
         />
       </div>
       <h2 className="text-xl font-bold tracking-tight text-text">Yisroel Krausz</h2>
-      <p className="text-base font-semibold text-text">Software Developer</p>
+      <p className="text-base font-semibold text-text">Founder of Code Canvas</p>
       <div className="flex flex-col gap-1">
         <p className="text-sm leading-relaxed text-text-muted">Tyne and Wear, England</p>
         <p className="text-sm leading-relaxed text-text-muted">
-          Available for projects and collaboration
+          Available for client work and collaboration
         </p>
       </div>
       <a

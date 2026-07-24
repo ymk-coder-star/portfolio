@@ -1,17 +1,20 @@
 import Reveal from '../../components/ui/Reveal';
 import PageHeader from '../../components/ui/PageHeader';
+import { usePageTitle } from '../../hooks/usePageTitle';
 import Bio from './Bio';
 import TechStackList from './TechStackList';
 import LinksList from './LinksList';
 import Profile from './Profile';
 
 export default function About() {
+  usePageTitle('About');
+
   return (
     <div className="px-4 py-8 md:px-6 md:py-12">
       <Reveal as="div" variant="fade">
         <PageHeader
-          title="About Me"
-          subtitle="Software developer creating practical digital products for real clients, with a strong focus on modern frontend experiences."
+          title="About"
+          subtitle="I’m Yisroel Krausz. Code Canvas is my platform where I build and ship web apps, tools, and software solutions for businesses and individuals."
           gradient
         />
       </Reveal>

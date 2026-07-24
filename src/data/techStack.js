@@ -1,4 +1,4 @@
-/** Technologies used across client and personal development work. */
+/** Technologies used across Code Canvas client and product work. */
 export const techStack = [
   {
     category: 'Languages',
@@ -6,7 +6,7 @@ export const techStack = [
   },
   {
     category: 'Frontend',
-    skills: ['React', 'Next.js', 'React Router', 'Tailwind CSS'],
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'React Router'],
   },
   {
     category: 'Backend & Data',
@@ -14,10 +14,10 @@ export const techStack = [
   },
   {
     category: 'Tools',
-    skills: ['Git', 'GitHub', 'npm'],
+    skills: ['Git', 'GitHub', 'Vercel', 'Prettier', 'ESLint'],
   },
   {
     category: 'Testing',
-    skills: ['Jest', 'Vitest'],
+    skills: ['Jest', 'Vitest', 'React Testing Library'],
   },
 ];

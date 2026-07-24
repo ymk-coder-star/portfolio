@@ -1,10 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import { getLinkProps } from '../../utils/linkProps';
+import { socialLinks } from '../../constants/site';
 import Monogram from '../ui/Monogram';
 import ExternalLinkIcon from '../icons/ExternalLinkIcon';
+import GithubIcon from '../icons/GithubIcon';
 
 const navLinks = [
-  { to: '/', label: 'Portfolio', end: true },
+  { to: '/', label: 'Home', end: true },
+  { to: '/portfolio', label: 'Portfolio', end: true },
   { to: '/about', label: 'About', end: false },
 ];
 
@@ -20,10 +23,13 @@ export default function Navbar() {
       <div className="mx-auto flex h-full max-w-site items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6">
         <NavLink
           to="/"
-          className="-ml-2 flex items-center gap-3 rounded-lg p-1 px-2 no-underline transition-colors duration-fast hover:bg-accent-soft"
-          aria-label="Yisroel Krausz — Home"
+          className="-ml-2 flex items-center gap-2.5 rounded-lg p-1 px-2 no-underline transition-colors duration-fast hover:bg-accent-soft sm:gap-3"
+          aria-label="Code Canvas — Home"
         >
           <Monogram size="md" />
+          <span className="text-sm font-bold tracking-tight text-text sm:text-base">
+            Code Canvas
+          </span>
         </NavLink>
 
         <nav className="shrink-0" aria-label="Main navigation">
@@ -43,15 +49,13 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                className={`${linkBase} group ml-0 border border-border bg-surface hover:border-border-strong hover:text-accent hover:shadow-sm sm:ml-2 max-sm:[&_span]:hidden max-sm:px-2`}
-                href="https://github.com/ymk-coder-star?tab=repositories"
-                {...getLinkProps(
-                  'https://github.com/ymk-coder-star?tab=repositories',
-                  'View repositories on GitHub'
-                )}
+                className={`${linkBase} group ml-0 border border-border bg-surface px-3 hover:border-border-strong hover:text-accent hover:shadow-sm sm:ml-2 sm:px-4`}
+                href={socialLinks.github}
+                {...getLinkProps(socialLinks.github, 'View my profile on GitHub')}
               >
-                <span>GitHub</span>
-                <ExternalLinkIcon className="h-3.5 w-3.5 shrink-0 opacity-60 transition-opacity duration-fast group-hover:opacity-100" />
+                <GithubIcon className="h-4 w-4 shrink-0" />
+                <span className="hidden sm:inline">GitHub</span>
+                <ExternalLinkIcon className="hidden h-3.5 w-3.5 shrink-0 opacity-60 transition-opacity duration-fast group-hover:opacity-100 sm:block" />
               </a>
             </li>
           </ul>

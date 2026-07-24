@@ -1,4 +1,4 @@
-import { CVUrl } from '../../constants/site';
+import { CVUrl, contactMailto, contactEmail, socialLinks } from '../../constants/site';
 import { getLinkProps } from '../../utils/linkProps';
 
 const footerLinks = [
@@ -11,20 +11,20 @@ const footerLinks = [
   {
     id: 'github',
     label: 'GitHub',
-    href: 'https://github.com/ymk-coder-star',
+    href: socialLinks.github,
     linkLabel: 'GitHub profile',
   },
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/yisroel-krausz/',
+    href: socialLinks.linkedin,
     linkLabel: 'LinkedIn profile',
   },
   {
     id: 'email',
     label: 'Email',
-    href: 'mailto:ymk613.dev@gmail.com',
-    linkLabel: 'Send email to Yisroel Krausz',
+    href: contactMailto,
+    linkLabel: `Send email to ${contactEmail}`,
   },
 ];
 
@@ -34,7 +34,9 @@ export default function Footer() {
   return (
     <footer className="mt-auto border-t border-slate-200/80 bg-white/70 backdrop-blur-md">
       <div className="mx-auto flex max-w-site flex-col items-center gap-4 px-4 py-5 text-center sm:flex-row sm:justify-between sm:px-6 sm:py-6 sm:text-left">
-        <p className="m-0 text-sm text-text-muted">&copy; {year} Yisroel Krausz</p>
+        <p className="m-0 text-sm text-text-muted">
+          &copy; {year} Code Canvas · Yisroel Krausz
+        </p>
         <nav
           className="flex w-full justify-center sm:w-auto sm:flex-1 sm:justify-center"
           aria-label="Footer"
